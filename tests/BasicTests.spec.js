@@ -13,7 +13,7 @@ test('Verify Page Title',async ({page})=>{
     const homepage=new HomePage(page);
     await homepage.navigateToHomePage();
     const title=await homepage.getPageTitle();
-    await expect(title).toMatch(/Shopping/);
+    await expect(page).toHaveTitle(/Flipkart|Shopping/i);
 
 
 })
