@@ -17,3 +17,11 @@ test('Verify Page Title',async ({page})=>{
 
 
 })
+test('Is Page Logo Visible?',async ({page})=>{
+
+    const homepage=new HomePage(page);
+    await homepage.navigateToHomePage();
+    await expect(page.locator(homepage.logo)).toBeVisible();
+
+
+})
