@@ -3,11 +3,11 @@ class HomePage{
     constructor(page)
     {
         this.page=page;
-        this.logo='//a[@id="nav-logo-sprites"]'
+        this.logo='//img[@title="Flipkart"]'
     }
     async navigateToHomePage()
     {
-        await this.page.goto('https://www.amazon.in/');
+        await this.page.goto('https://www.flipkart.com/');
     }
     async getPageTitle()
     {

@@ -26,3 +26,41 @@ test('Is Page Logo Visible?',async ({page})=>{
 
 
 })
+test('Login popus appear or not',async ({page})=>{
+
+    const homepage=new HomePage(page);
+    await homepage.navigateToHomePage();
+    await page.waitForLoadState('domcontentloaded');
+    const loginLocator = page.locator('a._1jKL3b');
+
+let isAppeared = false;
+
+try {
+    // wait max 2 seconds because the element disappears quickly
+    await loginLocator.waitFor({ timeout: 2000 });
+    isAppeared = true;
+} catch (e) {
+    isAppeared = false;
+}
+
+// Print result
+if (isAppeared) {
+    console.log("Temporary Login link (_1jKL3b) appeared.");
+} else {
+    console.log("Temporary Login link did NOT appear.");
+}
+
+
+})
+test.only('Search Test',async ({page})=>{
+
+    const homepage=new HomePage(page);
+    await homepage.navigateToHomePage();
+    await page.locator('//input[contains(@title,"Search")]').fill("Hello");
+
+
+
+
+
+}
+)
